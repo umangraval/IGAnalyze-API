@@ -13,8 +13,6 @@ from firebase import firebase
 from datetime import date
 from datetime import datetime
 
-instagram.with_credentials('covid.ai', 'CoronaCann09')
-instagram.login()
 
 app = Flask(__name__)
 CORS(app)
@@ -44,6 +42,8 @@ def translate():
 @app.route('/insta/<username>')
 def getigStats(username):
   instagram = Instagram()
+  instagram.with_credentials('covid.ai', 'CoronaCann09')
+  instagram.login()
   data = { 'account': {}}
   account = instagram.get_account(username)
   data['account']['id'] = account.identifier
