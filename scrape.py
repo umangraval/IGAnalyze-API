@@ -16,7 +16,7 @@ data['account']['Profile pic url'] = account.get_profile_picture_url()
 data['account']['Number of published posts'] = account.media_count
 data['account']['Number of followers'] = account.followed_by_count
 data['account']['Number of follows'] = account.follows_count
-
+print(data)
 total_likes = 0
 total_comments = 0
 coms = []

@@ -41,9 +41,7 @@ def translate():
 
 @app.route('/insta/<username>')
 def getigStats(username):
-  instagram = Instagram()
-  instagram.with_credentials('covid.ai', 'CoronaCann09')
-  instagram.login()
+  instagram = Instagram()  
   data = { 'account': {}}
   account = instagram.get_account(username)
   data['account']['id'] = account.identifier

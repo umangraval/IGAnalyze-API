@@ -1,1 +1,2 @@
-# instagram-dashboard-api
+# IG-Analytics-API
+
