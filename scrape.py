@@ -3,7 +3,7 @@ from igramscraper.instagram import Instagram
 instagram = Instagram()
 data = { 'account': {}}
 # authentication supported
-# instagram.with_credentials('covid.ai', 'CoronaCann09')
+# instagram.with_credentials(username, pwd)
 # instagram.login()
 
 # #Getting an account by id

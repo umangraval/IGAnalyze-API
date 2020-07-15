@@ -17,6 +17,11 @@ app = Flask(__name__)
 CORS(app)
 
 langs = ['gu','bn','hi','kn','ta','te','en']
+
+@app.route('/')
+def home():
+  return "hello"
+
 @app.route('/translate', methods=['POST', 'GET']) 
 def translate():
     if request.method == 'POST':
@@ -33,7 +38,7 @@ def translate():
     else:
         return render_template('trans.html')
 
-@app.route('/<username>')
+@app.route('/insta/<username>')
 def getigStats(username):
   instagram = Instagram()
   data = { 'account': {}}
@@ -91,7 +96,7 @@ def getigStats(username):
       
   return data
   
-@app.route('/<username>/coms')
+@app.route('/insta/<username>/coms')
 def getcomments(username):
   instagram = Instagram()
   data = {}
@@ -104,7 +109,7 @@ def getcomments(username):
   data['comments'] = coms
   return data
 
-@app.route('/<username>/likesncoms')
+@app.route('/insta/<username>/likesncoms')
 def getlikesncoms(username):
   instagram = Instagram()
   data = {'like_timeline': {},
@@ -128,7 +133,7 @@ def getlikesncoms(username):
   data['total_comments'] = total_comments
   return data
 
-@app.route('/<username>/latest')
+@app.route('/insta/<username>/latest')
 def getlatest(username):
   data = {}
   instagram = Instagram()
@@ -142,7 +147,7 @@ def getlatest(username):
     data['link'] = x.link
   return data
 
-@app.route('/<username>/followtimeline')
+@app.route('/insta/<username>/followtimeline')
 def getfollowTimeline(username):
   firebse = firebase.FirebaseApplication('https://covidai-1dd78.firebaseio.com/', None)
   previous = firebse.get('https://covidai-1dd78.firebaseio.com/covidai-1dd78/followcount/'+username, '')
