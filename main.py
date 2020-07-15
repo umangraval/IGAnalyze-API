@@ -23,21 +23,21 @@ langs = ['gu','bn','hi','kn','ta','te','en']
 def home():
   return "hello"
 
-@app.route('/translate', methods=['POST', 'GET']) 
-def translate():
-    if request.method == 'POST':
-        text = request.form['text']
-        captions = {}
-        for lan in langs:
-          trans = []
-          for word in text.split(' '):
-            t = translator.translate(word, dest=lan)
-            trans.append(t.text)
-          translated = ' '.join(trans)
-          captions[lan] = translated
-        return render_template('trans.html', captions=captions) 
-    else:
-        return render_template('trans.html')
+# @app.route('/translate', methods=['POST', 'GET']) 
+# def translate():
+#     if request.method == 'POST':
+#         text = request.form['text']
+#         captions = {}
+#         for lan in langs:
+#           trans = []
+#           for word in text.split(' '):
+#             t = translator.translate(word, dest=lan)
+#             trans.append(t.text)
+#           translated = ' '.join(trans)
+#           captions[lan] = translated
+#         return render_template('trans.html', captions=captions) 
+#     else:
+#         return render_template('trans.html')
 
 @app.route('/insta/<username>')
 def getigStats(username):
