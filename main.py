@@ -13,6 +13,9 @@ from firebase import firebase
 from datetime import date
 from datetime import datetime
 
+instagram.with_credentials('covid.ai', 'CoronaCann09')
+instagram.login()
+
 app = Flask(__name__)
 CORS(app)
 
